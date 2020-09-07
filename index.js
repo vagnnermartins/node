@@ -54,9 +54,12 @@ app.post('/pix/addressing', function (req, res) {
 
 		//EVP
 		//z4m65WyHhWmB9LVnwJ+IMsQTB37ng0hYxcJXzLhXIaU0r+Hp5hDu1fQDtSi7v8TAzjnkRVfNoibtOpnDfXQI1RqbX9lRbrkQLM8IODMz3oJ3VIkzUzk0QFP4NfVSrP6goZedx4EcIhMncceu7z3iJQ==
-		var respons = {
-	   "payload":"z4m65WyHhWmB9LVnwJ+IMsQTB37ng0hYxcJXzLhXIaU0r+Hp5hDu1fQDtSi7v8TABJOst8Huq5vquTYpv6PgsNf7faqTpEe9LKsFLWm+n/gdI1vNJbHD5mEuc2/MnQ8Kl7dw8XfiK9OlB4UOXxPDZg=="
-}
+
+		//No Validation
+		//var respons = {"payload":"z4m65WyHhWmB9LVnwJ+IMsQTB37ng0hYxcJXzLhXIaU0r+Hp5hDu1fQDtSi7v8TABJOst8Huq5vquTYpv6PgsNf7faqTpEe9LKsFLWm+n/gdI1vNJbHD5mEuc2/MnQ8Kl7dw8XfiK9OlB4UOXxPDZg=="}
+
+		//Validation
+		var respons = {"payload":"z4m65WyHhWmB9LVnwJ+IMsQTB37ng0hYxcJXzLhXIaU0r+Hp5hDu1fQDtSi7v8TABJOst8Huq5vquTYpv6PgsNf7faqTpEe9LKsFLWm+n/j3Oz1A4wcOttXtmaA+HiyfibLZPiZGV7iKYqXpZ3RWag=="}
 	res.send(respons)
 })
 
