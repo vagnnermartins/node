@@ -25,7 +25,7 @@ app.post('/submit', function (req, res) {
 
 //METODOS GET
 app.get('/pix/addressing', function (req, res) {
-	console.log("Passou no GET addressing")
+	console.log("Passou no GET /pix/addressing")
 		
 		var respons = {
 //Payload com Todos os tipos (4 Chaves)
@@ -41,13 +41,13 @@ app.get('/pix/addressing', function (req, res) {
 })
 
 app.delete('/pix/addressing/:uuid', function (req, res) {
-	console.log("Passou no DELETE")
+	console.log("Passou no DELETE /pix/addressing/:uuid")
 		
 	res.status(204).send()
 })
 
-app.post('/pix/addressing', function (req, res) {
-	console.log("Passou no POST addressing")
+app.post('/:uuid/create/portability', function (req, res) {
+	console.log("Passou no POST /:uuid/create/portability")
 		
 		//CPF
 		//z4m65WyHhWmB9LVnwJ+IMsQTB37ng0hYxcJXzLhXIaU0r+Hp5hDu1fQDtSi7v8TABJOst8Huq5vquTYpv6PgsNf7faqTpEe9LKsFLWm+n/gdI1vNJbHD5mEuc2/MnQ8Kl7dw8XfiK9OlB4UOXxPDZg==
@@ -63,6 +63,45 @@ app.post('/pix/addressing', function (req, res) {
 	res.send(respons)
 })
 
+app.post('/pix/addressing', function (req, res) {
+	console.log("Passou no POST /pix/addressing")
+		
+		//CPF
+		//z4m65WyHhWmB9LVnwJ+IMsQTB37ng0hYxcJXzLhXIaU0r+Hp5hDu1fQDtSi7v8TABJOst8Huq5vquTYpv6PgsNf7faqTpEe9LKsFLWm+n/gdI1vNJbHD5mEuc2/MnQ8Kl7dw8XfiK9OlB4UOXxPDZg==
+
+		//EVP
+		//z4m65WyHhWmB9LVnwJ+IMsQTB37ng0hYxcJXzLhXIaU0r+Hp5hDu1fQDtSi7v8TAzjnkRVfNoibtOpnDfXQI1RqbX9lRbrkQLM8IODMz3oJ3VIkzUzk0QFP4NfVSrP6goZedx4EcIhMncceu7z3iJQ==
+
+		//No Validation
+		//var respons = {"payload":"z4m65WyHhWmB9LVnwJ+IMsQTB37ng0hYxcJXzLhXIaU0r+Hp5hDu1fQDtSi7v8TABJOst8Huq5vquTYpv6PgsNf7faqTpEe9LKsFLWm+n/gdI1vNJbHD5mEuc2/MnQ8Kl7dw8XfiK9OlB4UOXxPDZg=="}
+
+		//Validation
+		var respons = {"payload":"z4m65WyHhWmB9LVnwJ+IMsQTB37ng0hYxcJXzLhXIaU0r+Hp5hDu1fQDtSi7v8TABJOst8Huq5vquTYpv6PgsNf7faqTpEe9LKsFLWm+n/j3Oz1A4wcOttXtmaA+HiyfibLZPiZGV7iKYqXpZ3RWag=="}
+	res.send(respons)
+})
+
+app.post('/pix/addressing/:keyId/token/validate', function (req, res) {
+	console.log("Passou no POST /pix/addressing/:keyId/token/validate")
+
+	var stringValue = JSON.stringify(req.body)
+
+		if(stringValue == "\{\"payload\":\"A/UcJDbquq6v+s3gWm3RJ1Dgnm48EsAGB0KdtHe1WjI=\"}"){
+			var respons = {"payload": "0M2LiG7PdofKlCO8QAn4PJpIOEAl5v0djsNWU2uHQI7gXbeZ58qzFefEGKRPCWW+JphXl/v5lxmtRVfWsBqKzrJkXcRzfA3dXswfZXzBz9fuT6WyeaEYoeoZ8JYXr/jKuC6c2fMh3xjB/ye+VSmTrzxcc4M71vCmqe5wtwl2KrV28PBTeD/FHQysVUsbugpz"}
+			res.status(200).send(respons)
+		} else {
+			//ERROR 404
+			var respons = {"payload":"+T+RuczXD1x3gwoNEc4NEWm4GyAep346svOT/rgCDgUELpWCPqH1SLJdETVFJfYvz5M4vZFmz5ew6ISXG0pgDeDDgcdU3wwcnHMaiz4mdKbWi7aty8IJ6+RGumTGLpeGOrqGD7nk+ZAVSCpyfABxqW1PtTMXekn/vcPquTWJlQDnRr7jlcvcRcrb9RlNqWb4"}
+			res.status(404).send(respons)
+		}
+
+	
+})
+
+app.post('/pix/addressing/:keyId/token/send', function (req, res) {
+	console.log("Passou no POST /pix/addressing/:keyId/token/send")
+		
+		res.status(204).send()
+})
 
 
 //METODOS GET
